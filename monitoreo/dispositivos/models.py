@@ -34,18 +34,18 @@ class Category(BaseModel):
 
     def __str__(self):
         return self.name
+
+class Product(BaseModel):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
     
 class Device(BaseModel):
     name = models.CharField(max_length=100)
     id_zone = models.ForeignKey(Zone, on_delete=models.CASCADE)
     id_cat = models.ForeignKey(Category, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-class Product(BaseModel):
-    name = models.CharField(max_length=100)
-    id_dev = models.ForeignKey(Device, on_delete=models.CASCADE)
+    id_prod = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
