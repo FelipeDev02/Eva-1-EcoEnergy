@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Dispositivos</title>
+</head>
+<body>
+    <h1>Dispositivos registrados</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Zona</th>
+            <th>Categoría</th>
+            <th>Producto</th>
+            <th>Estado</th>
+        </tr>
+        {% for device in devices %}
+        <tr>
+            <td>{{ device.name }}</td>
+            <td>{{ device.id_zone.name }}</td>
+            <td>{{ device.id_cat.name }}</td>
+            <td>{{ device.id_prod.name }}</td>
+            <td>{{ device.estado }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
