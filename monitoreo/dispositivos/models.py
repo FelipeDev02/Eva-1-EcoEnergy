@@ -63,11 +63,11 @@ class Alert(BaseModel):
     description = models.TextField()
 
     def __str__(self):
-        return self.name
+        return f"{self.alert_type} ({self.severity})"
     
 class AlertProduct(BaseModel):
     id_alert = models.ForeignKey(Alert, on_delete=models.CASCADE)
     id_prod = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return f"Alerta '{self.id_alert.alert_type}' sobre '{self.id_prod.name}'"
